@@ -1,0 +1,22 @@
+2026-07-04 01:12:38 [INFO    ] test_ammeter_framework: Started greenlee emulator on port 5001
+2026-07-04 01:12:38 [INFO    ] test_ammeter_framework: Started entes emulator on port 5002
+2026-07-04 01:12:38 [INFO    ] test_ammeter_framework: Started circutor emulator on port 5003
+2026-07-04 01:12:38 [INFO    ] test_ammeter_framework: Waiting 2.0s for emulators to be ready...
+2026-07-04 01:12:40 [INFO    ] test_ammeter_framework: ────────────────────────────────────────
+2026-07-04 01:12:40 [INFO    ] test_ammeter_framework: Testing greenlee | port=5001 | count=10 | freq=1.0Hz
+2026-07-04 01:12:49 [INFO    ] test_ammeter_framework: Saved results → results/data/20260704_011249_bcda474d_greenlee.json
+2026-07-04 01:12:49 [INFO    ] test_ammeter_framework: greenlee → mean=0.2555A  std=0.2669A  min=0.0201A  max=0.7583A  CV=104.5%
+2026-07-04 01:12:49 [INFO    ] test_ammeter_framework: ────────────────────────────────────────
+2026-07-04 01:12:49 [INFO    ] test_ammeter_framework: Testing entes | port=5002 | count=10 | freq=1.0Hz
+2026-07-04 01:12:58 [INFO    ] test_ammeter_framework: Saved results → results/data/20260704_011258_493fbda5_entes.json
+2026-07-04 01:12:58 [INFO    ] test_ammeter_framework: entes → mean=92.6765A  std=32.2800A  min=46.5904A  max=144.0498A  CV=34.8%
+2026-07-04 01:12:58 [INFO    ] test_ammeter_framework: ────────────────────────────────────────
+2026-07-04 01:12:58 [INFO    ] test_ammeter_framework: Testing circutor | port=5003 | count=10 | freq=1.0Hz
+2026-07-04 01:13:07 [INFO    ] test_ammeter_framework: Saved results → results/data/20260704_011307_b7fed46e_circutor.json
+2026-07-04 01:13:07 [INFO    ] test_ammeter_framework: circutor → mean=0.0304A  std=0.0210A  min=0.0063A  max=0.0595A  CV=69.0%
+2026-07-04 01:13:07 [INFO    ] test_ammeter_framework: ────────────────────────────────────────
+2026-07-04 01:13:07 [INFO    ] test_ammeter_framework: SUMMARY
+2026-07-04 01:13:07 [INFO    ] test_ammeter_framework:   greenlee   | mean=   0.2555A | std=  0.2669A | CV=104.5%
+2026-07-04 01:13:07 [INFO    ] test_ammeter_framework:   entes      | mean=  92.6765A | std= 32.2800A | CV= 34.8%
+2026-07-04 01:13:07 [INFO    ] test_ammeter_framework:   circutor   | mean=   0.0304A | std=  0.0210A | CV= 69.0%
+2026-07-04 01:13:20 [INFO    ] test_ammeter_framework: Saved visualization → results/plots/20260704_011319_comparison.png

@@ -1,0 +1,49 @@
+testing:
+  sampling:
+    measurements_count: 10
+    total_duration_seconds: null
+    sampling_frequency_hz: 1.0
+ammeters:
+  greenlee:
+    port: 5001
+    command: MEASURE_GREENLEE -get_measurement
+    valid_range:
+    - 0.005
+    - 105.0
+  entes:
+    port: 5002
+    command: MEASURE_ENTES -get_data
+    valid_range:
+    - 4.0
+    - 210.0
+  circutor:
+    port: 5003
+    command: MEASURE_CIRCUTOR -get_measurement -current
+    valid_range:
+    - 0.0005
+    - 0.15
+analysis:
+  statistical_metrics:
+  - mean
+  - median
+  - std
+  - min
+  - max
+  - cv_percent
+  visualization:
+    enabled: true
+    plot_types:
+    - time_series
+    - histogram
+    - boxplot
+result_management:
+  output_dir: results/data
+  save_json: true
+error_simulation:
+  enabled: false
+  error_rate: 0.3
+  scenarios:
+  - no_response
+  - malformed_response
+  - extreme_value
+  - random_delay

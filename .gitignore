@@ -1,0 +1,17 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Virtual environment
+.venv/
+
+# IDE
+.idea/
+
+# macOS
+.DS_Store
+
+# Claude Code session files
+.claude/
+

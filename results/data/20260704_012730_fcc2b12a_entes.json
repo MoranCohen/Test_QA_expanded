@@ -1,0 +1,38 @@
+{
+  "run_id": "fcc2b12a-dd66-40dd-8403-d5367bfc2cff",
+  "timestamp": "2026-07-04T01:27:30.455786",
+  "ammeter_type": "entes",
+  "config_snapshot": {
+    "measurements_count": 10,
+    "total_duration_seconds": null,
+    "sampling_frequency_hz": 1.0
+  },
+  "error_simulation": {
+    "total_requests": 10,
+    "successful": 6,
+    "failed": 4,
+    "actual_error_rate": 0.4,
+    "by_type": {
+      "timeout": 2,
+      "no_data": 1,
+      "malformed_response": 1
+    }
+  },
+  "samples": [
+    53.05042037348325,
+    69.87419611909672,
+    32.60962958308705,
+    148.53350092867933,
+    31.983049531178192,
+    128.86734171710438
+  ],
+  "statistics": {
+    "count": 6,
+    "mean": 77.48635637543816,
+    "median": 61.462308246289986,
+    "std": 49.85425537959167,
+    "min": 31.983049531178192,
+    "max": 148.53350092867933,
+    "cv_percent": 64.33939820068066
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "run_id": "6257525b-bbd3-4300-9361-93ab8a710e6a",
+  "timestamp": "2026-07-04T01:30:35.532973",
+  "ammeter_type": "greenlee",
+  "config_snapshot": {
+    "measurements_count": 10,
+    "total_duration_seconds": null,
+    "sampling_frequency_hz": 1.0
+  },
+  "error_simulation": {
+    "total_requests": 10,
+    "successful": 9,
+    "failed": 1,
+    "actual_error_rate": 0.1,
+    "by_type": {
+      "malformed_response": 1
+    }
+  },
+  "samples": [
+    0.23643699171387858,
+    0.09199267185194997,
+    0.2439825782707404,
+    1.3853583672760539,
+    0.14833206125110102,
+    0.14616696460923273,
+    0.014533162166841742,
+    0.08959651839258034,
+    0.02495628001657674
+  ],
+  "statistics": {
+    "count": 9,
+    "mean": 0.26459506617210615,
+    "median": 0.14616696460923273,
+    "std": 0.4279667353288063,
+    "min": 0.014533162166841742,
+    "max": 1.3853583672760539,
+    "cv_percent": 161.74403458091498
+  }
+}

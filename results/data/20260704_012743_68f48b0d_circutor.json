@@ -1,0 +1,39 @@
+{
+  "run_id": "68f48b0d-380a-4951-8d09-0af131b89b23",
+  "timestamp": "2026-07-04T01:27:43.562858",
+  "ammeter_type": "circutor",
+  "config_snapshot": {
+    "measurements_count": 10,
+    "total_duration_seconds": null,
+    "sampling_frequency_hz": 1.0
+  },
+  "error_simulation": {
+    "total_requests": 10,
+    "successful": 8,
+    "failed": 2,
+    "actual_error_rate": 0.2,
+    "by_type": {
+      "timeout": 1,
+      "malformed_response": 1
+    }
+  },
+  "samples": [
+    0.005895478541054007,
+    25.659982063258575,
+    0.03154744591893671,
+    0.03886117288729714,
+    0.007367601054796367,
+    0.054562011391725077,
+    0.03754165066161479,
+    11.996490068209042
+  ],
+  "statistics": {
+    "count": 8,
+    "mean": 4.72903093649038,
+    "median": 0.03820141177445596,
+    "std": 9.437369227219305,
+    "min": 0.005895478541054007,
+    "max": 25.659982063258575,
+    "cv_percent": 199.56243369858745
+  }
+}
