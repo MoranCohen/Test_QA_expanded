@@ -24,6 +24,17 @@ _AMMETER_CLASSES = {
 
 _STARTUP_WAIT_SECONDS = 2.0
 
+_PLOT_FIGURE_SIZE: tuple = (18, 5)
+_HISTOGRAM_BINS: int = 10
+_PLOT_DPI: int = 150
+_PLOT_OUTPUT_DIR: str = "results/plots"
+_DEFAULT_ERROR_RATE: float = 0.3
+_PLOT_TITLE_FONTSIZE: int = 14
+_PLOT_MARKER_SIZE: int = 3
+_PLOT_LINE_WIDTH: int = 1
+_PLOT_ALPHA_GRID: float = 0.3
+_PLOT_ALPHA_HISTOGRAM: float = 0.6
+
 
 class AmmeterTestFramework:
     def __init__(self, config_path: str = "config/config.yaml"):
@@ -41,7 +52,7 @@ class AmmeterTestFramework:
 
         error_sim_cfg = self.config.get("error_simulation") or {}
         error_sim_enabled = error_sim_cfg.get("enabled", False)
-        error_rate = float(error_sim_cfg.get("error_rate", 0.3))
+        error_rate = float(error_sim_cfg.get("error_rate", _DEFAULT_ERROR_RATE))
         scenarios = error_sim_cfg.get("scenarios") or [
             "no_response", "malformed_response", "extreme_value", "random_delay"
         ]
@@ -250,32 +261,32 @@ class AmmeterTestFramework:
             self.logger.warning("matplotlib not installed — skipping visualization")
             return
 
-        output_dir = "results/plots"
+        output_dir = _PLOT_OUTPUT_DIR
         os.makedirs(output_dir, exist_ok=True)
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
 
-        fig, axes = plt.subplots(1, 3, figsize=(18, 5))
-        fig.suptitle("Ammeter Current Measurements Comparison", fontsize=14)
+        fig, axes = plt.subplots(1, 3, figsize=_PLOT_FIGURE_SIZE)
+        fig.suptitle("Ammeter Current Measurements Comparison", fontsize=_PLOT_TITLE_FONTSIZE)
 
         ax = axes[0]
         for name, result in all_results.items():
             if "samples" in result:
-                ax.plot(result["samples"], label=name, marker="o", markersize=3, linewidth=1)
+                ax.plot(result["samples"], label=name, marker="o", markersize=_PLOT_MARKER_SIZE, linewidth=_PLOT_LINE_WIDTH)
         ax.set_title("Time Series")
         ax.set_xlabel("Sample #")
         ax.set_ylabel("Current (A)")
         ax.legend()
-        ax.grid(True, alpha=0.3)
+        ax.grid(True, alpha=_PLOT_ALPHA_GRID)
 
         ax = axes[1]
         for name, result in all_results.items():
             if "samples" in result:
-                ax.hist(result["samples"], alpha=0.6, label=name, bins=10)
+                ax.hist(result["samples"], alpha=_PLOT_ALPHA_HISTOGRAM, label=name, bins=_HISTOGRAM_BINS)
         ax.set_title("Distribution")
         ax.set_xlabel("Current (A)")
         ax.set_ylabel("Frequency")
         ax.legend()
-        ax.grid(True, alpha=0.3)
+        ax.grid(True, alpha=_PLOT_ALPHA_GRID)
 
         ax = axes[2]
         valid = {k: v for k, v in all_results.items() if "samples" in v}
@@ -287,11 +298,11 @@ class AmmeterTestFramework:
             )
         ax.set_title("Consistency (lower spread = more reliable)")
         ax.set_ylabel("Current (A)")
-        ax.grid(True, alpha=0.3)
+        ax.grid(True, alpha=_PLOT_ALPHA_GRID)
 
         plt.tight_layout()
         plot_path = f"{output_dir}/{timestamp}_comparison.png"
-        plt.savefig(plot_path, dpi=150, bbox_inches="tight")
+        plt.savefig(plot_path, dpi=_PLOT_DPI, bbox_inches="tight")
         plt.close()
         self.logger.info(f"Saved visualization → {plot_path}")
 

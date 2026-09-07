@@ -16,4 +16,3 @@ def request_current_from_ammeter(
             return value
         print("No data received.")
         return None
-

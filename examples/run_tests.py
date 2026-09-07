@@ -1,3 +1,4 @@
+import logging
 import os
 import sys
 
@@ -5,18 +6,20 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 
 from src.testing.test_framework import AmmeterTestFramework
 
+_logger = logging.getLogger(__name__)
 
-def main():
+
+def main() -> None:
     framework = AmmeterTestFramework()
     results = framework.run_all()
 
-    print("\n=== Final Results ===")
+    _logger.info("=== Final Results ===")
     for ammeter_type, result in results.items():
         if "error" in result:
-            print(f"{ammeter_type}: ERROR — {result['error']}")
+            _logger.error(f"{ammeter_type}: ERROR — {result['error']}")
             continue
         s = result["statistics"]
-        print(
+        _logger.info(
             f"{ammeter_type:10s} | "
             f"mean={s['mean']:9.4f}A | "
             f"std={s['std']:8.4f}A | "

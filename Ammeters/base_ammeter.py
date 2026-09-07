@@ -10,7 +10,7 @@ class AmmeterEmulatorBase(ABC):
         self.port = port
         random.seed(time.time())  # Seed the random number generator for each instance
 
-    def start_server(self):
+    def start_server(self) -> None:
         """
         Starts the server to listen for client requests.
         The server will run indefinitely, handling one client request at a time.
