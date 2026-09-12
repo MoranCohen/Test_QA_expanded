@@ -25,7 +25,7 @@ if __name__ == "__main__":
     threading.Thread(target=run_entes_emulator, daemon=True).start()
     threading.Thread(target=run_circutor_emulator, daemon=True).start()
 
-    # Wait for the servers to start. If you see ConnectionRefusedError, increase this value.
+    ## Wait for the servers to start. If you see ConnectionRefusedError, increase this value.
     time.sleep(2)
 
     # Fix: the original commands were truncated and did not match the servers' get_current_command
